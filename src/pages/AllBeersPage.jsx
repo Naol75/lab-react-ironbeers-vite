@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
-
+import MoonLoader from "react-spinners/MoonLoader";
+import "../App.css";
 
 function AllBeersPage() {
   const [beers, setBeers] = useState([]);
@@ -28,16 +29,15 @@ function AllBeersPage() {
 
 
   if(beers.length === 0) {
-    <div>
-        <h2>Trying to fetch all beers, please be patient!</h2>
-    </div>
+    return  <MoonLoader color="#36d7b7" />
   }
 
 
   return (
-    <div>
-      <h1>All Beers</h1>
-      <ul>
+    <div className="all-beers-page">
+      <h1 className="title"><span className="title-span">All Beers</span></h1>
+      <div className="card-container">
+      <ul className="img-container">
         {beers.map((beer) => (
           <li key={beer._id}>
             <Link to={`/beers/${beer._id}`}>
@@ -49,6 +49,8 @@ function AllBeersPage() {
           </li>
         ))}
       </ul>
+      </div>
+
     </div>
   );
 }

@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import { MoonLoader } from "react-spinners";
+import "../App.css";
 
 function BeerDetailsPage() {
   const { beerId } = useParams();
@@ -23,7 +25,7 @@ function BeerDetailsPage() {
   };
 
   if (!beer) {
-    return <div>Trying to get you a beer, please be patient!</div>;
+    return <MoonLoader color="#36d7b7" />
   }
 
   return (
@@ -34,7 +36,7 @@ function BeerDetailsPage() {
       <p>First Brewed: {beer.first_brewed}</p>
       <p>Attenuation Level: {beer.attenuation_level}</p>
       <p>{beer.description}</p>
-      <p>Contributed by: {beer.contributed_by}</p>
+      <p>Created by: {beer.contributed_by}</p>
     </div>
   );
 }

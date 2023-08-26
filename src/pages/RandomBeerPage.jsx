@@ -1,7 +1,8 @@
 import axios from "axios";
-
 import { useState } from "react";
 import { useEffect } from "react";
+import { MoonLoader } from "react-spinners";
+import "../App.css";
 
 function RandomBeerPage() {
   const [randomBeer, setRandomBeer] = useState(null);
@@ -21,7 +22,7 @@ function RandomBeerPage() {
   }
 
   if (!randomBeer) {
-    return <div>Trying to get you a random beer, please be patient!</div>;
+    return <MoonLoader color="#36d7b7" />
   }
 
   return (
