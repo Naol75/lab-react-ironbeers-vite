@@ -1,7 +1,13 @@
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+} from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
-import "../App.css";
-
 
 function AddBeerPage() {
   const [formData, setFormData] = useState({
@@ -35,79 +41,145 @@ function AddBeerPage() {
         contributed_by: formData.contributed_by,
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
   return (
-    <div>
-      <h1>Add New Beer</h1>
+    <Box className="beer-background" p="20px">
+      <Box
+        as="h1"
+        textAlign="center"
+        fontSize="2xl"
+        fontWeight="bold"
+        mb="20px"
+        className="title"
+      >
+        Add a new beer
+      </Box>
       <form onSubmit={handleCreateBeer}>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="tagline">Tagline:</label>
-        <input
-          type="text"
-          id="tagline"
-          name="tagline"
-          value={formData.tagline}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="description">Description:</label>
-        <textarea
-          id="description"
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="first_brewed">First Brewed:</label>
-        <input
-          type="text"
-          id="first_brewed"
-          name="first_brewed"
-          value={formData.first_brewed}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="brewers_tips">Brewer's Tips:</label>
-        <input
-          type="text"
-          id="brewers_tips"
-          name="brewers_tips"
-          value={formData.brewers_tips}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="attenuation_level">Attenuation Level:</label>
-        <input
-          type="number"
-          id="attenuation_level"
-          name="attenuation_level"
-          value={formData.attenuation_level}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="contributed_by">Created By:</label>
-        <input
-          type="text"
-          id="contributed_by"
-          name="contributed_by"
-          value={formData.contributed_by}
-          onChange={handleChange}
-        />
-
-        <button type="submit">Add Beer</button>
+        <FormControl>
+          <FormLabel>Name:</FormLabel>
+          <Input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            bg="gray.150"
+          />
+        </FormControl>
+        <FormControl mt="10px">
+          <FormLabel>Tagline:</FormLabel>
+          <Input
+            type="text"
+            id="tagline"
+            name="tagline"
+            value={formData.tagline}
+            onChange={handleChange}
+            bg="gray.150"
+          />
+        </FormControl>
+        <FormControl mt="10px">
+          <FormLabel>Description:</FormLabel>
+          <Textarea
+            id="description"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            bg="gray.150"
+          />
+        </FormControl>
+        <FormControl mt="10px">
+          <FormLabel>First Brewed:</FormLabel>
+          <Input
+            type="text"
+            id="first_brewed"
+            name="first_brewed"
+            value={formData.first_brewed}
+            onChange={handleChange}
+            bg="gray.150"
+          />
+        </FormControl>
+        <FormControl mt="10px">
+          <FormLabel>Brewer's Tips:</FormLabel>
+          <Input
+            type="text"
+            id="brewers_tips"
+            name="brewers_tips"
+            value={formData.brewers_tips}
+            onChange={handleChange}
+            bg="gray.150"
+            width="400px"
+          />
+        </FormControl>
+        <FormControl mt="10px">
+          <FormLabel>Attenuation Level:</FormLabel>
+          <Input
+            type="number"
+            id="attenuation_level"
+            name="attenuation_level"
+            value={formData.attenuation_level}
+            onChange={handleChange}
+            bg="gray.150"
+            width="400px"
+          />
+        </FormControl>
+        <FormControl mt="10px">
+          <FormLabel>Created By:</FormLabel>
+          <Input
+            type="text"
+            id="contributed_by"
+            name="contributed_by"
+            value={formData.contributed_by}
+            onChange={handleChange}
+            bg="gray.150"
+            width="400px"
+          />
+        </FormControl>
+        <Button
+          mt="20px"
+          colorScheme="blue"
+          type="submit"
+          display="inline-block"
+          position="relative"
+          padding="10px 20px"
+          border="2px solid #fda"
+          backgroundColor="#222222"
+          color="#fda"
+          fontFamily="'Dancing Script', serif"
+          fontStyle="italic"
+          fontSize="17px"
+          fontWeight="500px"
+          textDecoration="none"
+          margin="20px auto"
+          transition="color 0.4s"
+          _hover={{
+            color: "#eee",
+          }}
+          _after={{
+            border: "2px solid rgba(0, 0, 0, 0)",
+            display: "inline-block",
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            margin: "auto",
+            transition: "all 0.4s",
+          }}
+          _hover:_after={{
+            border: "2px solid #fda",
+            width: "calc(100% - 10px)",
+            height: "calc(100% + 10px)",
+          }}
+        >
+          Add Beer
+        </Button>
       </form>
-    </div>
+    </Box>
   );
 }
 

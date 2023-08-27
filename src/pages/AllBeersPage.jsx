@@ -29,17 +29,17 @@ function AllBeersPage() {
 
 
   if(beers.length === 0) {
-    return  <MoonLoader color="#36d7b7" />
+    return <div className="moon-loader beer-background " ><MoonLoader color="rgb(117, 100, 75)" /></div>
   }
 
 
   return (
     <div className="all-beers-page">
-      <h1 className="title"><span className="title-span">All Beers</span></h1>
-      <div className="card-container">
-      <ul className="img-container">
+      <h1 className="title"><span className="title-span">Check'em all</span></h1>
+      <div>
+        <ul className="wrapper">
         {beers.map((beer) => (
-          <li key={beer._id}>
+          <li key={beer._id} className="card-container" >
             <Link to={`/beers/${beer._id}`}>
               <img src={beer.image_url} alt={beer.name} />
               <h2>{beer.name}</h2>
@@ -48,7 +48,7 @@ function AllBeersPage() {
             </Link>
           </li>
         ))}
-      </ul>
+        </ul>
       </div>
 
     </div>

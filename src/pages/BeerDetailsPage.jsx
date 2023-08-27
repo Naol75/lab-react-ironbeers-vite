@@ -25,7 +25,7 @@ function BeerDetailsPage() {
   };
 
   if (!beer) {
-    return <MoonLoader color="#36d7b7" />
+    return <div className="moon-loader beer-background " ><MoonLoader color="rgb(117, 100, 75)" /></div>
   }
 
   return (

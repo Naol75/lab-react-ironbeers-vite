@@ -3,7 +3,7 @@ import "../App.css";
 
 function HomePage() {
   return (
-    <div className="home-container">
+    <div className="home-container beer-background" >
       <h1 className="title"><span className="title-span">Welcome to IronBeers</span></h1>
       <div className="links-div">
         <Link to="/beers">

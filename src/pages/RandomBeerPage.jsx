@@ -22,18 +22,24 @@ function RandomBeerPage() {
   }
 
   if (!randomBeer) {
-    return <MoonLoader color="#36d7b7" />
+    return <div className="moon-loader beer-background " ><MoonLoader color="rgb(117, 100, 75)" /></div>
   }
 
   return (
-    <div>
-      <h1>{randomBeer.name}</h1>
-      <img src={randomBeer.image_url} alt={randomBeer.name} />
-      <p>{randomBeer.tagline}</p>
-      <p>First Brewed: {randomBeer.first_brewed}</p>
-      <p>Attenuation Level: {randomBeer.attenuation_level}</p>
-      <p>{randomBeer.description}</p>
-      <p>Contributed by: {randomBeer.contributed_by}</p>
+    <div className="random-beer-page" >
+        <h1 className="title" >{randomBeer.name}</h1>
+      <div className="wrapper random-container" >
+        <div>
+          <img className="random-img" width={100} src={randomBeer.image_url} alt={randomBeer.name} />
+        </div>
+        <div className="random-beer-text-container">
+          <p>{randomBeer.tagline}</p>
+          <p>First Brewed: {randomBeer.first_brewed}</p>
+          <p>Attenuation Level: {randomBeer.attenuation_level}</p>
+          <p>{randomBeer.description}</p>
+          <p>Contributed by: {randomBeer.contributed_by}</p>
+        </div>
+      </div>
     </div>
   );
 }
