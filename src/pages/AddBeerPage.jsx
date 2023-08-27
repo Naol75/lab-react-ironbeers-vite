@@ -8,6 +8,8 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
+import { useContext } from "react"; 
+import { ThemeContext } from "../theme.context";
 
 function AddBeerPage() {
   const [formData, setFormData] = useState({
@@ -19,6 +21,11 @@ function AddBeerPage() {
     attenuation_level: 0,
     contributed_by: "",
   });
+
+  const { btnThemeClassName } = useContext(ThemeContext);
+  const { titleThemeClassName } = useContext(ThemeContext);
+  const { backgroundThemeClassName } = useContext(ThemeContext);
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -46,14 +53,14 @@ function AddBeerPage() {
   };
 
   return (
-    <Box className="beer-background" p="20px">
+    <Box className={backgroundThemeClassName} p="20px">
       <Box
         as="h1"
         textAlign="center"
         fontSize="2xl"
         fontWeight="bold"
         mb="20px"
-        className="title"
+        className={titleThemeClassName}
       >
         Add a new beer
       </Box>
@@ -138,6 +145,7 @@ function AddBeerPage() {
           />
         </FormControl>
         <Button
+          className={btnThemeClassName}
           mt="20px"
           colorScheme="blue"
           type="submit"
@@ -177,7 +185,7 @@ function AddBeerPage() {
           }}
         >
           Add Beer
-        </Button>
+        </Button  >
       </form>
     </Box>
   );

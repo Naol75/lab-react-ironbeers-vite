@@ -4,9 +4,15 @@ import { useState } from "react";
 import { useEffect } from "react";
 import MoonLoader from "react-spinners/MoonLoader";
 import "../App.css";
+import { ThemeContext } from "../theme.context";
+import { useContext } from "react";
 
 function AllBeersPage() {
   const [beers, setBeers] = useState([]);
+
+  const { cardThemeClassName } = useContext(ThemeContext);
+  const { titleThemeClassName } = useContext(ThemeContext);
+  const { backgroundThemeClassName } = useContext(ThemeContext);   
   
   const getAllBeers = async () => {
 
@@ -29,17 +35,17 @@ function AllBeersPage() {
 
 
   if(beers.length === 0) {
-    return <div className="moon-loader beer-background " ><MoonLoader color="rgb(117, 100, 75)" /></div>
+    return <div className={`moon-loader ${backgroundThemeClassName}`}><MoonLoader color="rgb(117, 100, 75)" /></div>
   }
 
 
   return (
-    <div className="all-beers-page">
-      <h1 className="title"><span className="title-span">Check'em all</span></h1>
+    <div className={backgroundThemeClassName}>
+      <h1 className={titleThemeClassName}><span className="title-span">Check'em all</span></h1>
       <div>
-        <ul className="wrapper">
+        <ul>
         {beers.map((beer) => (
-          <li key={beer._id} className="card-container" >
+          <li key={beer._id} className={`wrapper ${cardThemeClassName}`} >
             <Link to={`/beers/${beer._id}`}>
               <img src={beer.image_url} alt={beer.name} />
               <h2>{beer.name}</h2>

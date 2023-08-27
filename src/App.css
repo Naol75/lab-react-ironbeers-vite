@@ -2,8 +2,12 @@
   background-color: #222222;
   min-width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding-bottom: 15px;
+}
+
+.home-icon {
+  padding-left: 10px;
 }
 
 .home-container {
@@ -30,12 +34,22 @@
 .random-beer-page{
     min-width: 100%;
     min-height: 100vh;
-    display: flex;
     font-size: 20px;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     background-image: url("./assets/ba550665-e418-41e7-883a-086fc9c3e352.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+.dark-random-beer-page{
+    min-width: 100%;
+    min-height: 100vh;
+    font-size: 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url("./assets/pexels-eberhard-grossgasteiger-2098428.jpg");
     background-size: cover;
     background-position: center;
   }
@@ -59,12 +73,30 @@
 
 
   .card-container {
+    margin: 0 auto;
     display: flex;
     justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    width: 400px;
+    margin: 10px;
+    background-color: #575757;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .dark-card-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
     width: 400px;
     flex-basis: calc(33.33% - 20px);
     margin: 10px;
-    background-color: #ececec;
+    background-color: #cacaca;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -90,10 +122,16 @@
     font-size: 15px;
     letter-spacing: 2px;
     width: 300px;
-    color: rgb(90, 76, 56)
+    color: rgb(160, 123, 72)
   }
   
+
+
   .card-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  .dark-card-container:hover {
     transform: translateY(-5px);
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
   }
@@ -101,14 +139,16 @@
 
 
 .wrapper {
+
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
+    width: 500px;
     font-size: 20px;
     text-decoration: none;
     justify-content: center;
     align-items: center;
-    padding: 0;
+    padding: 20px;
   
 }
 
@@ -122,14 +162,14 @@ a {
 }
 
 .wrapper a {
-  color: rgb(117, 100, 75);
+  color: rgb(160, 123, 72);
   text-decoration: none;
   transition: color 0.3s;
 }
 
 
 .wrapper a:hover {
-  color: rgb(90, 76, 56);
+  color: rgb(116, 90, 57);
   text-decoration: underline;
 }
 
@@ -147,6 +187,17 @@ a {
   min-width: 100%;
   min-height: 100vh;
   background-image: url("./assets/pexels-tom-verdoot-2899107.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.dark-beer-background {
+  min-width: 100%;
+  min-height: 100vh;
+  background-image: url("./assets/pexels-eberhard-grossgasteiger-2098428.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -196,6 +247,42 @@ a {
   width: calc(100% - 10px);
   height: calc(100% + 10px);
 }
+.dark-btn {
+  display: inline-block;
+  position: relative;
+  padding: 10px 20px;
+  border: 2px solid #222222;
+  background-color: #fda;
+  color: #222222 ;
+  font-family: "Dancing Script", serif;
+  font-style: italic;
+  font-size: 30px;
+  text-decoration: none;
+  margin: 20px auto;
+  transition: color 0.4s;
+}
+.dark-btn:after {
+  content: " ";
+  border: 2px solid #fda;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transition: all 0.4s;
+}
+.dark-btn:hover {
+  color: #444444;
+}
+.dark-btn:hover:after {
+  border: 2px solid #444444;
+  width: calc(100% - 10px);
+  height: calc(100% + 10px);
+}
 
 .title {
   text-align: center;
@@ -208,6 +295,17 @@ a {
   margin-top: 15px;
 
 }
+.dark-title {
+  text-align: center;
+  font-family: "lato", sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+  letter-spacing: 7px;
+   -webkit-text-stroke: 1px #fda;
+  color: black;
+  margin-top: 15px;
+
+}
 
 .span {
   background: -webkit-linear-gradient(white, #38495a);
@@ -215,4 +313,20 @@ a {
   -webkit-background-clip: text;
   color: transparent;
 
+}
+
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+  padding-right: 15px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+
+.toggle-container:hover {
+  transform: scale(1.1);
+  
+  color: #ffffff;
 }
