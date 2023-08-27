@@ -3,6 +3,7 @@
   min-width: 100%;
   display: flex;
   justify-content: center;
+  padding-bottom: 15px;
 }
 
 .home-container {
@@ -145,7 +146,7 @@ a {
 .beer-background {
   min-width: 100%;
   min-height: 100vh;
-  background-image: url("./assets/ba550665-e418-41e7-883a-086fc9c3e352.jpg");
+  background-image: url("./assets/pexels-tom-verdoot-2899107.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
