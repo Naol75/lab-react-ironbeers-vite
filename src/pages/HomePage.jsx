@@ -3,9 +3,7 @@ import "../App.css";
 import { useContext } from "react";
 import { ThemeContext } from "../theme.context";
 
-
 function HomePage() {
-
   const { titleThemeClassName } = useContext(ThemeContext);
   const { btnThemeClassName } = useContext(ThemeContext);
   const { backgroundThemeClassName } = useContext(ThemeContext); 
@@ -14,22 +12,16 @@ function HomePage() {
     <div className={`home-container ${backgroundThemeClassName}`}>
       <h1 className={titleThemeClassName}><span className="title-span">Welcome to IronBeers</span></h1>
       <div className="links-div">
-        <Link to="/beers">
-          <a href="#" className={btnThemeClassName}>
-            All Beers
-          </a>
+        <Link to="/beers" className={btnThemeClassName}>
+          All Beers
         </Link>
 
-        <Link to="/random-beer">
-          <a href="#" className={btnThemeClassName}>
-            Random Beer
-          </a>
+        <Link to="/random-beer" className={btnThemeClassName}>
+          Random Beer
         </Link>
 
-        <Link to="/new-beer">
-          <a href="#" className={btnThemeClassName}>
-            Add a new Beer
-          </a>
+        <Link to="/new-beer" className={btnThemeClassName}>
+          Add a new Beer
         </Link>
       </div>
     </div>

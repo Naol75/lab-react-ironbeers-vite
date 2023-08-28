@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../theme.context";
 
 function Navbar() {
-  const { isThemeDark, handleSwitchTheme } = useContext(ThemeContext);
+  const { handleSwitchTheme } = useContext(ThemeContext);
 
   return (
     <nav className="nav-bar">
